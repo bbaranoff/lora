@@ -42,21 +42,21 @@ if [ $MYVAR != "n" ];
 echo $PWD
 then
     read -p "CloudFlare API ? " CLOUD_VAR
-    sed -i -e 's/CLOUD_VAR/'$CLOUD_VAR'/g' Caddyfile
+    sed -i -e 's/CLOUD_VAR/'$CLOUD_VAR'/g' /root/LoRaHandle/Caddyfile
     read -p "Nom de Domaine ? " DOMAIN_NAME
-    sed -i -e 's/DOMAIN_NAME/'$DOMAIN_NAME'/g' Caddyfile
+    sed -i -e 's/DOMAIN_NAME/'$DOMAIN_NAME'/g' /root/LoRaHandle/Caddyfile
     read -p "Nom de Sous-Domaine ? " SUBDOMAIN
-    sed -i -e 's/SUBDOMAIN/'$SUBDOMAIN'/g' Caddyfile
+    sed -i -e 's/SUBDOMAIN/'$SUBDOMAIN'/g' /root/LoRaHandle/Caddyfile
     read -p "IP PUBLIQUE DU SERVEUR DERRIERE LE REVERSE PROXY ? " MON_IP_PUBLIQUE
-    sed -i -e 's/MON_IP_PUBLIQUE/'$MON_IP_PUBLIQUE'/g' Caddyfile
+    sed -i -e 's/MON_IP_PUBLIQUE/'$MON_IP_PUBLIQUE'/g' /root/LoRaHandle/Caddyfile
     cp /root/LoRaHandle/Caddyfile /etc/caddy/Caddyfile
 else
     read -p "Nom de Domaine ? " DOMAIN_NAME
-    sed -i -e 's/DOMAIN_NAME/'$DOMAIN_NAME'/g' Caddyfile2
+    sed -i -e 's/DOMAIN_NAME/'$DOMAIN_NAME'/g' /root/LoRaHandle/Caddyfile2
     read -p "Nom de Sous-Domaine ? " SUBDOMAIN
-    sed -i -e 's/SUBDOMAIN/'$SUBDOMAIN'/g' Caddyfile2
+    sed -i -e 's/SUBDOMAIN/'$SUBDOMAIN'/g' /root/LoRaHandle/Caddyfile2
     read -p "IP PUBLIQUE DU SERVEUR DERRIERE LE REVERSE PROXY ? " MON_IP_PUBLIQUE
-    sed -i -e 's/MON_IP_PUBLIQUE/'$MON_IP_PUBLIQUE'/g' Caddyfile2
+    sed -i -e 's/MON_IP_PUBLIQUE/'$MON_IP_PUBLIQUE'/g' /root/LoRaHandle/Caddyfile2
     cp /root/LoRaHandle/Caddyfile2 /etc/caddy/Caddyfile
 fi
 cp /root/LoRaHandle/caddy /usr/local/bin

@@ -1,12 +1,12 @@
-https://sdr.systems {
-        reverse_proxy 162.19.245.229:8888
+https://DOMAIN_NAME {
+        reverse_proxy MON_IP_PUBLIQUE:8888
         tls {
-                dns cloudflare TMc1JHjBcglJBWuYu-JYRTKOv-VSYQyjnseSysLp
+                dns cloudflare CLOUD_VAR
         }
 }
-https://lora.sdr.systems {
-        reverse_proxy 162.19.245.229:8080
+https://SUBDOMAIN.DOMAIN_NAME {
+        reverse_proxy MON_IP_PUBLIQUE:8080
         tls {
-                dns cloudflare TMc1JHjBcglJBWuYu-JYRTKOv-VSYQyjnseSysLp
+                dns cloudflare CLOUD_VAR
 	}
 }
