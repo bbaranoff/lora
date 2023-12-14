@@ -1,5 +1,13 @@
 #!/bin/bash
 if [ $USER != "root" ]; then echo "run as root" && exit; fi
+sudo apt update && sudo apt upgrade -y
+wget https://go.dev/dl/go1.21.5.linux-amd64.tar.gz
+rm -rf /usr/local/go && tar -C /usr/local -xzf go1.21.5.linux-amd64.tar.gz
+#run from git folder
+mkdir /root/LoRaHandle
+cp -r * /root/LoRaHandle
+mkdir -p ~/.mytb-data && sudo chown -R 799:799 ~/.mytb-data
+mkdir -p ~/.mytb-logs && sudo chown -R 799:799 ~/.mytb-logs
 mkdir /etc/caddy
 read -p "Using Cloudflare ? Y/n " MYVAR
 if [ $MYVAR != "n" ];
@@ -24,14 +32,6 @@ else
     cp /root/LoRaHandle/Caddyfile2 /etc/caddy/Caddyfile
 fi
 
-sudo apt update && sudo apt upgrade -y
-wget https://go.dev/dl/go1.21.5.linux-amd64.tar.gz
-rm -rf /usr/local/go && tar -C /usr/local -xzf go1.21.5.linux-amd64.tar.gz
-#run from git folder
-mkdir /root/LoRaHandle
-cp -r * /root/LoRaHandle
-mkdir -p ~/.mytb-data && sudo chown -R 799:799 ~/.mytb-data
-mkdir -p ~/.mytb-logs && sudo chown -R 799:799 ~/.mytb-logs
 
 sudo apt install docker.io docker-compose -y
 bash /root/LoRaHandle/remove-all-from-docker.sh
