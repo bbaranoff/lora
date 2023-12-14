@@ -12,6 +12,7 @@ mkdir -p ~/.mytb-logs && sudo chown -R 799:799 ~/.mytb-logs
 sudo apt install docker.io docker-compose
 sudo chmod 755 -R /root/LoRaHandle/
 cd /root/LoRaHandle
+rm -r /root/LoRaHandle/chirpstack
 git clone https://github.com/brocaar/chirpstack-docker.git
 mv chirpstack-docker chirpstack
 cd /root/LoRaHandle/chirpstack
