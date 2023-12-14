@@ -1,0 +1,6 @@
+https://DOMAIN_NAME {
+        reverse_proxy MON_IP_PUBLIQUE:8888
+}
+https://SUBDOMAIN.DOMAIN_NAME {
+        reverse_proxy MON_IP_PUBLIQUE:8080
+}

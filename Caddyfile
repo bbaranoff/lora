@@ -1,0 +1,12 @@
+https://DOMAIN_NAME {
+        reverse_proxy MON_IP_PUBLIQUE:8888
+        tls {
+                dns cloudflare CLOUD_VAR
+        }
+}
+https://SUBDOMAIN.DOMAIN_NAME {
+        reverse_proxy MON_IP_PUBLIQUE:8080
+        tls {
+                dns cloudflare CLOUD_VAR
+	}
+}
