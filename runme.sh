@@ -16,7 +16,7 @@ rm -r /root/LoRaHandle/chirpstack
 git clone https://github.com/brocaar/chirpstack-docker.git
 mv chirpstack-docker chirpstack
 cd /root/LoRaHandle/chirpstack
-sudo docker-compose up
+sudo docker-compose up -d
 cd ..
 
 cd /root/LoRaHandle/thingsboard
