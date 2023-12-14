@@ -54,7 +54,7 @@ Préparation de la plateforme d'objets connectés
 
 -----------------------------------------------
 
-Offre choisie pour le serveurd'IoT (Machine virtuelle hebergée par OVH)  
+Offre choisie pour le serveurd'IoT (Machine virtuelle hebergée par OVH)  NB La première offre a 4€ supporte largement la charge. 
 
 [![text](https://raw.githubusercontent.com/bbaranoff/lora/main/VPS_Offre_OVH.png)](https://www.ovhcloud.com/fr/vps/limited-edition/)  
 
@@ -67,7 +67,7 @@ Echange de clef entre le client (mon laptop) et le serveur (le VPS d'OVH)
 Optionel - Début
 --------------------------------------------------------------------------------------
 
-On transfert la zone DNS d'OVH vers cloudflare  
+On transfert la zone DNS d'OVH vers cloudflare (La version gratuite de cloudflare suffit là aussi)
 
 [![text](https://raw.githubusercontent.com/bbaranoff/lora/main/ovh_to_cloudflare_dns.jpg)](https://www.ovh.com)  
 
