@@ -1,30 +1,44 @@
-Installation :
+L'objet de ce projet est d'automatiser l'installation de ChirpStack (Gestion des Trames LoRaWAN) et de ThingsBoard 
+(Gestion des données reçu par les objets connectés ou les mesures faites par divers Laboratoires ou entités en exprimant le besoin)
+Le script d'installation offre la possibilité d'accéder à ces même serveurs de trois manières soit directement sur l'ip publique,
+soit sur un nom de domaine et un sous domaine, soit toujours un nom de domaine et un sous domaine appartenant à ce même domaine encore une fois
+mais en y ajoutant un reverse proxy de CloudFlare.
+
+Installation :  
 
 [![Watch the video](https://raw.githubusercontent.com/bbaranoff/lora/main/my.gif)](https://www.youtube.com/watch?v=cwH5qIvN_4E)
 
-
-Set it up :
+Set it up :  
 
 [![Watch the video](https://raw.githubusercontent.com/bbaranoff/lora/main/my2.gif)](https://www.youtube.com/watch?v=2qsGmbTFw6k)
 
 
+Testé sur un VPS OVH  
 
-Testé sur un VPS OVH
-
-Serveurs personnels :
+Serveurs personnels :  
 
 https://sdr.systems  
 
 https://lora.sdr.systems  
 
-#LoRa
-=====
+---------------------------
+# Installation des serveurs
+---------------------------
+
+Dans mon cas j'ai pris un serveur VPS (Une Machine Virtuelle possédant une IP Publique chez OVH ainsi qu'un nom de domaine toujours chez OVH : sdr.systems
+et enfin j'ai transféré ma zone DNS chez cloudflare.
+De ce fait il est impossible d'accéder au port SSH via ssh ubuntu@sdr.systems mais il faut donc faire ssh@IP_PUBLIQUE_OVH pour avoir l'accès.
+J'ai aussi ajouté le fichier id_rsa.pub sur mes certificats SSH de chez OVH. Il est comme ceci si besoin possible de bloquer l'authentification par mot
+de passe sur le SSH. L'installation s'est donc faite sur une version Ubuntu 22.04 Jammy d'OVH. Une fois tout ceci fait : Pour accéder à la machine virtuelle de chez OVH on fait
+
+ssh@IP_PUBLIQUE_OVH
+
+et enfin on peut commencer l'installation des serveurs ChirpStack et ThingsBoard.
 
 Dans une fenetre BASH
 
-A partir de la racine de ce ZIP téléchargé à partir de github
-
 ```bash
+git clone https://github.com/bbaranoff/lora
 sudo chmod +x runme.sh
 sudo ./runme.sh
 ```
