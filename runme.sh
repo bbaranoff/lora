@@ -1,5 +1,30 @@
 #!/bin/bash
 if [ $USER != "root" ]; then echo "run as root" && exit; fi
+mkdir /etc/caddy
+read -p "Using Cloudflare ? Y/n " MYVAR
+if [ $MYVAR != "n" ];
+echo $PWD
+then
+    read -p "CloudFlare API ? " CLOUD_VAR
+    sed -i -e 's/CLOUD_VAR/'$CLOUD_VAR'/g' /root/LoRaHandle/Caddyfile
+    read -p "Nom de Domaine ? " DOMAIN_NAME
+    sed -i -e 's/DOMAIN_NAME/'$DOMAIN_NAME'/g' /root/LoRaHandle/Caddyfile
+    read -p "Nom de Sous-Domaine ? " SUBDOMAIN
+    sed -i -e 's/SUBDOMAIN/'$SUBDOMAIN'/g' /root/LoRaHandle/Caddyfile
+    read -p "IP PUBLIQUE DU SERVEUR DERRIERE LE REVERSE PROXY ? " MON_IP_PUBLIQUE
+    sed -i -e 's/MON_IP_PUBLIQUE/'$MON_IP_PUBLIQUE'/g' /root/LoRaHandle/Caddyfile
+    cp /root/LoRaHandle/Caddyfile /etc/caddy/Caddyfile
+else
+    read -p "Nom de Domaine ? " DOMAIN_NAME
+    sed -i -e 's/DOMAIN_NAME/'$DOMAIN_NAME'/g' /root/LoRaHandle/Caddyfile2
+    read -p "Nom de Sous-Domaine ? " SUBDOMAIN
+    sed -i -e 's/SUBDOMAIN/'$SUBDOMAIN'/g' /root/LoRaHandle/Caddyfile2
+    read -p "IP PUBLIQUE DU SERVEUR DERRIERE LE REVERSE PROXY ? " MON_IP_PUBLIQUE
+    sed -i -e 's/MON_IP_PUBLIQUE/'$MON_IP_PUBLIQUE'/g' /root/LoRaHandle/Caddyfile2
+    cp /root/LoRaHandle/Caddyfile2 /etc/caddy/Caddyfile
+fi
+
+sudo apt update && sudo apt upgrade -y
 wget https://go.dev/dl/go1.21.5.linux-amd64.tar.gz
 rm -rf /usr/local/go && tar -C /usr/local -xzf go1.21.5.linux-amd64.tar.gz
 #run from git folder
@@ -36,29 +61,6 @@ sudo apt update
 sudo apt install xcaddy -y
 
 xcaddy build --with github.com/caddy-dns/cloudflare@latest
-mkdir /etc/caddy
-read -p "Using Cloudflare ? Y/n " MYVAR
-if [ $MYVAR != "n" ];
-echo $PWD
-then
-    read -p "CloudFlare API ? " CLOUD_VAR
-    sed -i -e 's/CLOUD_VAR/'$CLOUD_VAR'/g' /root/LoRaHandle/Caddyfile
-    read -p "Nom de Domaine ? " DOMAIN_NAME
-    sed -i -e 's/DOMAIN_NAME/'$DOMAIN_NAME'/g' /root/LoRaHandle/Caddyfile
-    read -p "Nom de Sous-Domaine ? " SUBDOMAIN
-    sed -i -e 's/SUBDOMAIN/'$SUBDOMAIN'/g' /root/LoRaHandle/Caddyfile
-    read -p "IP PUBLIQUE DU SERVEUR DERRIERE LE REVERSE PROXY ? " MON_IP_PUBLIQUE
-    sed -i -e 's/MON_IP_PUBLIQUE/'$MON_IP_PUBLIQUE'/g' /root/LoRaHandle/Caddyfile
-    cp /root/LoRaHandle/Caddyfile /etc/caddy/Caddyfile
-else
-    read -p "Nom de Domaine ? " DOMAIN_NAME
-    sed -i -e 's/DOMAIN_NAME/'$DOMAIN_NAME'/g' /root/LoRaHandle/Caddyfile2
-    read -p "Nom de Sous-Domaine ? " SUBDOMAIN
-    sed -i -e 's/SUBDOMAIN/'$SUBDOMAIN'/g' /root/LoRaHandle/Caddyfile2
-    read -p "IP PUBLIQUE DU SERVEUR DERRIERE LE REVERSE PROXY ? " MON_IP_PUBLIQUE
-    sed -i -e 's/MON_IP_PUBLIQUE/'$MON_IP_PUBLIQUE'/g' /root/LoRaHandle/Caddyfile2
-    cp /root/LoRaHandle/Caddyfile2 /etc/caddy/Caddyfile
-fi
 cp /root/LoRaHandle/caddy /usr/local/bin
 (crontab -l 2>/dev/null; echo "@reboot sudo /root/LoRaHandle/myscript.sh") | crontab -
 sudo reboot
