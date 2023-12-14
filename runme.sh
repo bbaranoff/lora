@@ -8,7 +8,7 @@ cp -r * /root/LoRaHandle
 mkdir -p ~/.mytb-data && sudo chown -R 799:799 ~/.mytb-data
 mkdir -p ~/.mytb-logs && sudo chown -R 799:799 ~/.mytb-logs
 
-sudo apt install docker.io docker-compose
+sudo apt install docker.io docker-compose -y
 bash /root/LoRaHandle/remove-all-from-docker.sh
 sudo chmod 755 -R /root/LoRaHandle/
 cd /root/LoRaHandle
@@ -29,11 +29,11 @@ export GOROOT=/usr/local/go
 export PATH=$PATH:/usr/local/go/bin
 go version
 
-sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
+sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https -y
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/xcaddy/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-xcaddy-archive-keyring.gpg
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/xcaddy/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-xcaddy.list
 sudo apt update
-sudo apt install xcaddy
+sudo apt install xcaddy -y
 
 xcaddy build --with github.com/caddy-dns/cloudflare@latest
 mkdir /etc/caddy
@@ -61,3 +61,5 @@ else
 fi
 cp /root/LoRaHandle/caddy /usr/local/bin
 (crontab -l 2>/dev/null; echo "@reboot sudo /root/LoRaHandle/myscript.sh") | crontab -
+sudo reboot
+
