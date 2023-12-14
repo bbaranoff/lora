@@ -43,6 +43,7 @@ Dans une fenetre BASH
 
 ```bash
 git clone https://github.com/bbaranoff/lora
+cd lora
 sudo chmod +x runme.sh
 sudo ./runme.sh
 ```
