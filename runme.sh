@@ -49,7 +49,7 @@ then
     sed -i -e 's/SUBDOMAIN/'$SUBDOMAIN'/g' Caddyfile
     read -p "IP PUBLIQUE DU SERVEUR DERRIERE LE REVERSE PROXY ? " MON_IP_PUBLIQUE
     sed -i -e 's/MON_IP_PUBLIQUE/'$MON_IP_PUBLIQUE'/g' Caddyfile
-    cp /root/LoRaHandle/Caddyfile /usr/caddy
+    cp /root/LoRaHandle/Caddyfile /etc/caddy/Caddyfile
 else
     read -p "Nom de Domaine ? " DOMAIN_NAME
     sed -i -e 's/DOMAIN_NAME/'$DOMAIN_NAME'/g' Caddyfile2
@@ -57,7 +57,7 @@ else
     sed -i -e 's/SUBDOMAIN/'$SUBDOMAIN'/g' Caddyfile2
     read -p "IP PUBLIQUE DU SERVEUR DERRIERE LE REVERSE PROXY ? " MON_IP_PUBLIQUE
     sed -i -e 's/MON_IP_PUBLIQUE/'$MON_IP_PUBLIQUE'/g' Caddyfile2
-    cp /root/LoRaHandle/Caddyfile2 /usr/caddy/Caddyfile
+    cp /root/LoRaHandle/Caddyfile2 /etc/caddy/Caddyfile
 fi
 cp /root/LoRaHandle/caddy /usr/local/bin
 (crontab -l 2>/dev/null; echo "@reboot sudo /root/LoRaHandle/myscript.sh") | crontab -
