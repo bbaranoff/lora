@@ -1,5 +1,4 @@
 #!/bin/bash
-bash remove-all-from-docker.sh
 if [ $USER != "root" ]; then echo "run as root" && exit; fi
 wget https://go.dev/dl/go1.21.5.linux-amd64.tar.gz
 rm -rf /usr/local/go && tar -C /usr/local -xzf go1.21.5.linux-amd64.tar.gz
@@ -10,6 +9,7 @@ mkdir -p ~/.mytb-data && sudo chown -R 799:799 ~/.mytb-data
 mkdir -p ~/.mytb-logs && sudo chown -R 799:799 ~/.mytb-logs
 
 sudo apt install docker.io docker-compose
+bash /root/LoRaHandle/remove-all-from-docker.sh
 sudo chmod 755 -R /root/LoRaHandle/
 cd /root/LoRaHandle
 rm -r /root/LoRaHandle/chirpstack
