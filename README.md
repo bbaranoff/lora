@@ -1,3 +1,7 @@
+------
+# LoRa
+------
+
 L'objet de ce projet est d'automatiser l'installation de ChirpStack (Gestion des Trames LoRaWAN) et de ThingsBoard 
 (Gestion des données reçu par les objets connectés ou les mesures faites par divers Laboratoires ou entités en exprimant le besoin)
 Le script d'installation offre la possibilité d'accéder à ces même serveurs de trois manières soit directement sur l'ip publique,
