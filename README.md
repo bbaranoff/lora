@@ -1,3 +1,12 @@
+Installation :
+
+[![text](https://raw.githubusercontent.com/bbaranoff/lora/main/my.mov)]
+
+Set it up :
+
+[![text](https://raw.githubusercontent.com/bbaranoff/lora/main/my2.mov)]
+
+
 Testé sur un VPS OVH
 
 Serveurs personnels :
