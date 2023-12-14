@@ -1,11 +1,11 @@
 Installation :
 
-[![Watch the video](https://raw.githubusercontent.com/bbaranoff/lora/main/my.mov)](https://www.youtube.com/watch?v=cwH5qIvN_4E)
+[![Watch the video](https://raw.githubusercontent.com/bbaranoff/lora/main/my.gif)](https://www.youtube.com/watch?v=cwH5qIvN_4E)
 
 
 Set it up :
 
-[![Watch the video](https://raw.githubusercontent.com/bbaranoff/lora/main/my2.mov)](https://www.youtube.com/watch?v=2qsGmbTFw6k)
+[![Watch the video](https://raw.githubusercontent.com/bbaranoff/lora/main/my2.gif)](https://www.youtube.com/watch?v=2qsGmbTFw6k)
 
 
 
