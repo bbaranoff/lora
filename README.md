@@ -1,10 +1,12 @@
 Installation :
 
-[![text](https://raw.githubusercontent.com/bbaranoff/lora/main/my.mov)]
+[![Watch the video](https://raw.githubusercontent.com/bbaranoff/lora/main/my.mov)](https://www.youtube.com/watch?v=cwH5qIvN_4E)
+
 
 Set it up :
 
-[![text](https://raw.githubusercontent.com/bbaranoff/lora/main/my2.mov)]
+[![Watch the video](https://raw.githubusercontent.com/bbaranoff/lora/main/my2.mov)](https://www.youtube.com/watch?v=2qsGmbTFw6k)
+
 
 
 Testé sur un VPS OVH
