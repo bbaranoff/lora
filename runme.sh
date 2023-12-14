@@ -36,7 +36,7 @@ sudo apt update
 sudo apt install xcaddy
 
 xcaddy build --with github.com/caddy-dns/cloudflare@latest
-
+mkdir /etc/caddy
 read -p "Using Cloudflare ? Y/n " MYVAR
 if [ $MYVAR != "n" ];
 echo $PWD
