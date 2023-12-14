@@ -9,6 +9,8 @@ cp -r * /root/LoRaHandle
 mkdir -p ~/.mytb-data && sudo chown -R 799:799 ~/.mytb-data
 mkdir -p ~/.mytb-logs && sudo chown -R 799:799 ~/.mytb-logs
 mkdir /etc/caddy
+HAVE_DOMAIN_NAME="Y"
+read -p "Having Domain Name ? Y/n " HAVE_DOMAIN_NAME
 read -p "Using Cloudflare ? Y/n " MYVAR
 if [ $MYVAR != "n" ];
 echo $PWD
@@ -62,6 +64,12 @@ sudo apt install xcaddy -y
 
 xcaddy build --with github.com/caddy-dns/cloudflare@latest
 cp /root/LoRaHandle/caddy /usr/local/bin
-(crontab -l 2>/dev/null; echo "@reboot sudo /root/LoRaHandle/myscript.sh") | crontab -
-sudo reboot
-
+if ($HAVE_DOMAIN_NAME != "n");then
+    (crontab -l 2>/dev/null; echo "@reboot sudo /root/LoRaHandle/myscript.sh") | crontab -
+else
+    (crontab -l 2>/dev/null; echo "@reboot sudo /root/LoRaHandle/myscript_2.sh") | crontab -
+fi
+read -p "DONE ! $DOMAIN_NAME and $SUBDOMAIN.$DOMAIN_NAME public_ip:8080 public_ip:8888 should be available after reboot ! Reboot Y/n" REBOOT
+if ($REBOOT != "n");then
+    sudo reboot
+fi
